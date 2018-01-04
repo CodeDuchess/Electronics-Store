@@ -2,17 +2,12 @@ class CartController < ApplicationController
 
     before_action :authenticate_user!, except: [:add_to_cart, :view_order]
 
-  def add_to_cart
-    line_item = LineItem.create(product_id: params[:product_id], quantity: params[:quantity])
-
-    line_item.update(line_item_total: (line_item.quantity * line_item.product.price))
-
-    redirect_back(fallback_location: root_path)
-  end
-end
-
 def view_order
-    @line_items = current_order.line_items
+    @line_items = LineItem.all
+  end
+
+def line_item
+    @line_item = LineItem.all
 end
 
 #added 11/2
@@ -30,7 +25,7 @@ end
 
 
 def checkout
-  line_items = LineItem.all
+  @line_items = LineItem.all
   @order = Order.create(user_id: current_user.id, subtotal: 0)
 
   line_items.each do |line_item|
@@ -43,6 +38,7 @@ def checkout
   @order.update(sales_tax: (@order.subtotal * 0.08))
   @order.update(grand_total: (@order.sales_tax + @order.subtotal))
 
+  line_items.destroy_all
 end
 
 # added 11/2
@@ -66,3 +62,4 @@ def order_complete
    flash[:error] = e.message
    redirect_to cart_path
  end
+end

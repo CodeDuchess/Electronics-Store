@@ -6,8 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'pry-rails'
+gem 'better_errors', group: :development
+gem 'binding_of_caller'
 gem 'jquery-rails'
-gem 'devise'
 gem 'carrierwave'
 gem 'better_errors', group: :development
 gem 'binding_of_caller'
@@ -17,6 +20,8 @@ gem 'cancancan'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
 gem 'certified' #for the PC users
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 
 
 

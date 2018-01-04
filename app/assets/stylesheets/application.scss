@@ -15,3 +15,13 @@
  */
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
+
+body {
+background-image:url("elect.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.pull-right, .dropdown {
+	color: white;
+}

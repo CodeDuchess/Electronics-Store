@@ -74,7 +74,7 @@ class ProductsController < ApplicationController
     end
 end
 
-# added 10/31
+# define a product so that code in products/_form.html.erb (dropdown menu) will run #
 def new
   @product = Product.new
   @categories = Category.all

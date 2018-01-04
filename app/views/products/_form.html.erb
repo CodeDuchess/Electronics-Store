@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<!-- Create name, price, quantity, description and brand options -->
+
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, id: :product_name, class: 'form-control' %>
@@ -21,7 +23,7 @@
     <%= form.text_field :price, id: :product_price, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+   <div class="form-group">
     <%= form.label :quantity %>
     <%= form.number_field :quantity, id: :product_quantity, class: 'form-control' %>
   </div>
@@ -36,19 +38,16 @@
     <%= form.text_field :brand, id: :product_brand, class: 'form-control' %>
   </div>
 
-<!-- I added this 10/31 -->
+<!-- category dropdown menu & will need to define a new product in our products controller -->
   <div class="form-group">
     <%= form.select :category_id, Category.all.map { |c| [ c.name, c.id ]}, {include_blank: "Please select a category" } %>
   </div>
 
-<!-- I added this 10/31 -->
+<!-- Create a field for taking an uploaded image -->
   <div class="form-group">
     <strong>Upload Product Image: </strong>
     <%= form.file_field :image %>
   </div>
-
-
-
 
 
   <div class="form-group">

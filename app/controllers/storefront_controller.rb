@@ -1,4 +1,5 @@
 class StorefrontController < ApplicationController
+  # give customers three ways to view products: all, by category and by brand; also must update routes.rb #
   def all_items
     @products= Product.all
 
